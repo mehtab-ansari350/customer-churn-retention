@@ -1,0 +1,123 @@
+CUSTOMER CHURN PREDICTION SYSTEM - PROJECT SUMMARY
+
+This project is an end-to-end machine learning solution developed to predict customer churn in a telecom business and provide actionable insights for improving customer retention.
+
+--------------------------------------------------
+
+OBJECTIVE
+To identify customers who are likely to churn and help businesses take proactive actions to reduce customer loss.
+
+--------------------------------------------------
+
+DATASET
+- Telecom customer dataset
+- Includes:
+  • Demographic details (gender, senior citizen, etc.)
+  • Services used (internet, streaming, support, etc.)
+  • Billing information (monthly charges, payment method, etc.)
+
+--------------------------------------------------
+
+DATA PREPROCESSING
+- Handled missing values
+- Converted categorical variables using one-hot encoding
+- Ensured consistency between training and prediction data
+- Built preprocessing pipeline for API input
+
+--------------------------------------------------
+
+FEATURE ENGINEERING
+Created new meaningful features:
+- num_services → total number of services used
+- contract_risk → risk level based on contract type
+- engagement_score → tenure × number of services
+- tenure_group → customer lifecycle segmentation (New, Mid, Loyal)
+
+--------------------------------------------------
+
+MODEL DEVELOPMENT
+Model Used: XGBoost Classifier
+
+Why XGBoost?
+- High performance on structured/tabular data
+- Handles feature interactions effectively
+- Provides feature importance for explainability
+
+--------------------------------------------------
+
+MODEL PERFORMANCE
+
+Base Model (Selected Final Model)
+- Accuracy: 75.7%
+- Precision (Churn=1): 0.53
+- Recall (Churn=1): 0.76
+- F1-score: 0.62
+
+Optimized Model
+- Accuracy: 67%
+- Precision (Churn=1): 0.44
+- Recall (Churn=1): 0.90
+- F1-score: 0.60
+
+✔ Final Decision:
+Base model selected due to better balance and fewer false positives.
+
+--------------------------------------------------
+
+DEPLOYMENT
+
+Backend:
+- Flask API with /predict endpoint
+
+Frontend:
+- Streamlit interactive dashboard
+
+--------------------------------------------------
+
+DASHBOARD FEATURES
+- User-friendly customer input form
+- Real-time churn prediction
+- Risk segmentation:
+  • High Risk
+  • Medium Risk
+  • Low Risk
+- Business recommendations
+- Feature importance visualization
+
+--------------------------------------------------
+
+BUSINESS INSIGHTS
+- Month-to-month contract customers are more likely to churn
+- Customers with fewer services have higher churn probability
+- Low engagement leads to increased churn risk
+- Long-term contracts reduce churn significantly
+
+--------------------------------------------------
+
+EXPLAINABILITY
+- Used XGBoost feature importance
+- Identifies key drivers behind churn predictions
+
+--------------------------------------------------
+
+TECH STACK
+- Python
+- Pandas, NumPy
+- XGBoost
+- Flask
+- Streamlit
+
+--------------------------------------------------
+
+CONCLUSION
+This project demonstrates a complete machine learning pipeline from data preprocessing to deployment. It delivers both predictive accuracy and valuable business insights to support customer retention strategies.
+
+--------------------------------------------------
+
+FUTURE IMPROVEMENTS
+- Add SHAP for advanced explainability
+- Deploy on cloud (AWS / Render)
+- Integrate real-time database
+- Build monitoring and alert system
+
+--------------------------------------------------

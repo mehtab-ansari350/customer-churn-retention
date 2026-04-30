@@ -1,7 +1,7 @@
 import pickle
 
 # Load model
-model = pickle.load(open("models/optimized_xgb_model.pkl", "rb"))
+model = pickle.load(open("models/xgb_churn_model.pkl", "rb"))
 
 # 🔥 EXACT columns used during training
 feature_columns = model.get_booster().feature_names
@@ -25,3 +25,7 @@ def predict(df):
         segment = "Low Risk"
 
     return churn_prob, segment
+
+def get_feature_importance():
+    importance = model.feature_importances_
+    return list(zip(feature_columns, importance))
